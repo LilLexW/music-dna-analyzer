@@ -9,6 +9,31 @@ st.set_page_config(
     page_icon="🎵"
 )
 
+with st.sidebar:
+
+    st.header("About")
+
+    st.write(
+        """
+        🎵 Music DNA Analyzer
+
+        Created by Alex Wang
+
+        Master of Engineering Science
+        (Telecommunications)
+
+        UNSW Sydney
+
+        Built with:
+
+        • Python
+        • Streamlit
+        • Plotly
+        • Pandas
+        • Scikit-learn
+        """
+    )
+
 st.title("🎵 Music DNA Analyzer")
 
 with st.form("music_form"):
@@ -411,7 +436,9 @@ if submitted:
         
     st.divider()
 
-    st.subheader("About")
+    st.subheader(
+        "Project Information"
+    )
 
     st.write(
         """
@@ -424,4 +451,4 @@ if submitted:
         • Personality Classification
         • Song Recommendation
         """
-)
+    )
