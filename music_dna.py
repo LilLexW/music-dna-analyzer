@@ -24,10 +24,16 @@ def analyze_music(songs_input):
     scaler = StandardScaler()
 
     songs = songs_input.replace("，", ",").split(",")
-    
-    song_count = len(
-        [s for s in songs if s.strip()]
+
+    songs = list(
+        set(
+            s.strip()
+            for s in songs
+            if s.strip()
+        )
     )
+    
+    song_count = len(songs)
 
     selected_indices = []
 
@@ -276,22 +282,23 @@ def analyze_music(songs_input):
 
     recommended_songs = []
 
-    for rec in top_10:
+    seen = set()
 
-        seen = set()
+    for rec in recommendations:
 
-        for rec in top_10:
+        song_name = rec[1]
 
-            song_name = rec[1]
+        if song_name in seen:
+            continue
 
-            if song_name in seen:
-                continue
+        seen.add(song_name)
 
-            seen.add(song_name)
+        recommended_songs.append(
+            f"{rec[1]} - {rec[2]}"
+        )
 
-            recommended_songs.append(
-                f"{rec[1]} - {rec[2]}"
-            )
+        if len(recommended_songs) >= 10:
+            break
             
     print(
         "SONG COUNT =",

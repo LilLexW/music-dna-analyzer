@@ -463,11 +463,13 @@ if submitted:
             "You often listen to vocal-driven music with strong lyrical content."
         )
 
+    for line in insight:
+
         st.write(
             "•",
             line
         )
-    
+
     st.subheader(
         "Recommended Songs"
     )
@@ -478,22 +480,22 @@ if submitted:
             "🎵",
             song
         )
-        
-    st.divider()
+    
+st.divider()
 
-    st.subheader(
-        "Project Information"
-    )
+st.subheader(
+    "Project Information"
+)
 
-    st.write(
-        """
-        Music DNA Analyzer is a music profiling tool that
-        analyzes listening preferences using Spotify audio features.
+st.write(
+    """
+    Music DNA Analyzer is a music profiling tool that
+    analyzes listening preferences using Spotify audio features.
 
-        Features:
-        • Music DNA Analysis
-        • Genre Visualization
-        • Personality Classification
-        • Song Recommendation
-        """
-    )
+    Features:
+    • Music DNA Analysis
+    • Genre Visualization
+    • Personality Classification
+    • Song Recommendation
+    """
+)
