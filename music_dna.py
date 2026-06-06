@@ -108,6 +108,7 @@ def analyze_music(songs_input):
     genre_counts = user_profile[
         "track_genre"
     ].value_counts()
+    top_genre = genre_counts.idxmax()
 
     avg_energy = user_profile[
         "energy"
@@ -277,10 +278,21 @@ def analyze_music(songs_input):
 
     for rec in top_10:
 
-        recommended_songs.append(
-            f"{rec[1]} - {rec[2]}"
-        )
+        seen = set()
 
+        for rec in top_10:
+
+            song_name = rec[1]
+
+            if song_name in seen:
+                continue
+
+            seen.add(song_name)
+
+            recommended_songs.append(
+                f"{rec[1]} - {rec[2]}"
+            )
+            
     print(
         "SONG COUNT =",
         song_count
@@ -299,7 +311,7 @@ def analyze_music(songs_input):
         "not_found": not_found,
 
         "top_artists": artist_counts,
-
+        "top_genre": top_genre,
         "genres": genre_counts,
 
         "recommendations": recommended_songs

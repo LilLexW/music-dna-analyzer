@@ -48,14 +48,27 @@ with st.form("music_form"):
 
 if submitted:
 
+    if not songs.strip():
+
+        st.error(
+            "Please enter at least one song."
+        )
+
+        st.stop()
+
     with st.spinner(
         "Analyzing your music taste..."
     ):
 
         result = analyze_music(songs)
 
+    genre_diversity = len(
+        result["genres"]
+    )
+
     confidence = min(
-        result["song_count"] * 10,
+        result["song_count"] * 8
+        + max(0, 30 - genre_diversity * 5),
         100
     )
 
@@ -114,6 +127,11 @@ if submitted:
 
     st.subheader(
         "Your Music DNA"
+    )
+
+    st.metric(
+        "Dominant Genre",
+        result["top_genre"]
     )
 
     col1, col2, col3 = st.columns(3)
@@ -315,6 +333,11 @@ if submitted:
         int(result["speechiness"] * 100)
     )
 
+
+    st.subheader(
+        "🎤 Top Artists"
+    )
+
     for artist in result[
         "top_artists"
     ].index:
@@ -350,7 +373,19 @@ if submitted:
             "You enjoy energetic music with strong rhythm and groove."
         )
 
-    elif result["valence"] > 0.65:
+    elif (
+        result["acousticness"] > 0.6
+    ):
+
+        personality = "Acoustic Soul"
+
+        description = (
+            "You appreciate organic sounds and intimate songwriting."
+        )
+
+    elif (
+        result["valence"] > 0.65
+    ):
 
         personality = "Feel-Good Listener"
 
@@ -416,7 +451,17 @@ if submitted:
             "Rhythm and groove play an important role in your music taste."
         )
 
-    for line in insight:
+    if result["acousticness"] > 0.6:
+
+        insight.append(
+            "You seem to prefer acoustic and organic instrumentation."
+        )
+
+    if result["speechiness"] > 0.25:
+
+        insight.append(
+            "You often listen to vocal-driven music with strong lyrical content."
+        )
 
         st.write(
             "•",
