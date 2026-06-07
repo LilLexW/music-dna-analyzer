@@ -1,8 +1,8 @@
 # 🎵 Music DNA Analyzer
 
-Music DNA Analyzer is an interactive music profiling tool built with Python and Streamlit.
+Music DNA Analyzer is a music profiling web application built with Python and Streamlit.
 
-Users can enter their favourite songs and receive a personalized music profile based on Spotify-style audio features such as energy, positivity, groove, acousticness, and speechiness.
+The app analyzes a user's music preferences using Spotify audio features and generates a personalized Music DNA profile, including personality insights, genre distribution, favourite artists, and song recommendations.
 
 ---
 
@@ -10,113 +10,81 @@ Users can enter their favourite songs and receive a personalized music profile b
 
 ### 🎧 Music DNA Analysis
 
-Generate a music profile based on your favourite songs.
+Analyze music preferences based on:
 
-Metrics include:
+* Energy
+* Danceability
+* Valence
+* Acousticness
+* Speechiness
 
-- Energy
-- Positivity
-- Groove
-- Acousticness
-- Speechiness
+### 📊 Interactive Visualizations
 
----
+* Genre Distribution Chart
+* Music DNA Radar Chart
+* Audio Feature Scores
 
-### 📊 Genre Distribution
+### 🎭 Music Personality
 
-Visualize your music taste with an interactive genre distribution chart.
+Generate a music personality profile based on listening characteristics.
 
----
+Examples:
 
-### 🎯 Music Personality
-
-Receive a personalized music personality label such as:
-
-- Night Thinker
-- Rhythm Chaser
-- Feel-Good Listener
-- Melodic Explorer
-
----
+* Night Thinker
+* Rhythm Chaser
+* Acoustic Soul
+* Melodic Explorer
 
 ### 🧠 Music Insights
 
-Automatically generated insights based on your listening preferences.
-
----
+Provide personalized insights into listening habits and musical preferences.
 
 ### 🎵 Song Recommendations
 
-Get recommended songs based on your music DNA profile.
+Recommend songs with similar audio characteristics.
 
----
+### 📄 Downloadable Report
 
-### 🎤 Top Artists
+Export a Music DNA report containing:
 
-Identify the artists that appear most frequently in your selected songs.
-
----
-
-### 🔍 Smart Song Matching
-
-Supports:
-
-- Case-insensitive search
-- Partial matching
-- Fuzzy matching
-
-to improve song detection accuracy.
+* Audio feature scores
+* Personality profile
+* Recommendations
 
 ---
 
 ## Tech Stack
 
-- Python
-- Pandas
-- Streamlit
-- Plotly
-- Scikit-learn
+* Python
+* Streamlit
+* Pandas
+* Plotly
+* Scikit-learn
 
 ---
 
-## Project Structure
+## Dataset
 
-```text
-music-dna-analyzer/
+This project uses Spotify audio feature data including:
 
-├── app.py
-├── music_dna.py
-├── dataset.csv
-├── README.md
-```
-
----
-
-## Example Workflow
-
-```text
-User Input Songs
-        ↓
-Music Feature Extraction
-        ↓
-Music DNA Analysis
-        ↓
-Personality Classification
-        ↓
-Music Insights
-        ↓
-Song Recommendations
-```
+* Energy
+* Danceability
+* Valence
+* Acousticness
+* Speechiness
+* Tempo
+* Instrumentalness
+* Liveness
 
 ---
 
 ## Future Improvements
 
-- Spotify API Integration
-- Music Compatibility Analysis
-- Artist Similarity Analysis
-- Playlist Generation
-- User History Tracking
+* Spotify API Integration
+* Playlist Analysis
+* User Accounts
+* AI-generated Music Insights
+* Music Taste Comparison Between Users
 
 ---
 
@@ -124,5 +92,6 @@ Song Recommendations
 
 Alex Wang
 
-Master of Engineering Science
+Master of Engineering Science (Telecommunications)
+
 UNSW Sydney
